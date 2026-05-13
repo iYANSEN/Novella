@@ -45,7 +45,7 @@ export default function HistoryScreen() {
 
       {history.length === 0 ? (
         <View style={styles.empty}>
-          <Text style={styles.emptyIcon}>📖</Text>
+          <Text style={styles.emptyIcon}>🕮</Text>
           <Text style={styles.emptyTitle}>No reading history</Text>
           <Text style={styles.emptyText}>Novels you read will appear here</Text>
         </View>
@@ -64,7 +64,7 @@ export default function HistoryScreen() {
                 {item.cover_url ? (
                   <Image source={{ uri: item.cover_url }} style={StyleSheet.absoluteFillObject} resizeMode="cover" />
                 ) : (
-                  <Text style={styles.coverPlaceholder}>📖</Text>
+                  <Text style={styles.coverPlaceholder}>🕮</Text>
                 )}
               </View>
               <View style={styles.info}>

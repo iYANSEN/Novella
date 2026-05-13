@@ -99,7 +99,7 @@ export default function LibraryScreen() {
       {/* Content */}
       {filtered.length === 0 ? (
         <View style={styles.empty}>
-          <Text style={styles.emptyIcon}>{library.length === 0 ? '𖤘' : '🔍︎'}</Text>
+          <Text style={styles.emptyIcon}>{library.length === 0 ? '🕮' : '🔍︎'}</Text>
           <Text style={styles.emptyTitle}>{library.length === 0 ? 'Your library is empty' : 'No results'}</Text>
           <Text style={styles.emptyText}>
             {library.length === 0

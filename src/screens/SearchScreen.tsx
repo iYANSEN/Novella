@@ -128,7 +128,7 @@ export default function SearchScreen() {
             style={[styles.modeTab, mode === m && styles.modeTabActive]}
           >
             <Text style={[styles.modeTabText, mode === m && styles.modeTabTextActive]}>
-              {m === 'popular' ? '🔥 Popular' : m === 'latest' ? '🆕 Latest' : '🔍 Search'}
+              {m === 'popular' ? '✦︎ Popular' : m === 'latest' ? '❕ Latest' : '🔍︎ Search'}
             </Text>
           </TouchableOpacity>
         ))}
@@ -169,14 +169,14 @@ export default function SearchScreen() {
         </View>
       ) : error ? (
         <View style={styles.errorContainer}>
-          <Text style={styles.errorText}>⚠️ {(error as Error).message}</Text>
+          <Text style={styles.errorText}>❕ {(error as Error).message}</Text>
           <TouchableOpacity onPress={() => refetch()} style={styles.retryBtn}>
             <Text style={styles.retryText}>Retry</Text>
           </TouchableOpacity>
         </View>
       ) : novels.length === 0 ? (
         <View style={styles.emptyContainer}>
-          <Text style={styles.emptyIcon}>{mode === 'search' ? '🔍' : '📚'}</Text>
+          <Text style={styles.emptyIcon}>{mode === 'search' ? '🔍︎' : '🗒'}</Text>
           <Text style={styles.emptyText}>
             {mode === 'search' && query ? 'No results found' : 'Start searching or browse above'}
           </Text>

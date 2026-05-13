@@ -57,7 +57,7 @@ export default function BookmarksScreen() {
 
       {bookmarks.length === 0 ? (
         <View style={styles.empty}>
-          <Text style={styles.emptyIcon}>🔖</Text>
+          <Text style={styles.emptyIcon}>⚐</Text>
           <Text style={styles.emptyTitle}>No bookmarks yet</Text>
           <Text style={styles.emptyText}>Long-press text in the reader to bookmark passages</Text>
         </View>
@@ -81,10 +81,10 @@ export default function BookmarksScreen() {
                   </View>
                   <View style={styles.cardActions}>
                     <TouchableOpacity onPress={() => handleEdit(bm)} style={styles.actionBtn}>
-                      <Text style={styles.actionIcon}>✏️</Text>
+                      <Text style={styles.actionIcon}>✎</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => handleDelete(bm)} style={styles.actionBtn}>
-                      <Text style={styles.actionIcon}>🗑️</Text>
+                      <Text style={styles.actionIcon}>🗑</Text>
                     </TouchableOpacity>
                   </View>
                 </View>
@@ -92,7 +92,7 @@ export default function BookmarksScreen() {
                   {bm.selectedText}
                 </Text>
                 {bm.note ? (
-                  <Text style={styles.note}>📝 {bm.note}</Text>
+                  <Text style={styles.note}>🗒 {bm.note}</Text>
                 ) : null}
                 <Text style={styles.date}>{dayjs(bm.createdAt).format('MMM D, YYYY · h:mm A')}</Text>
               </View>

@@ -20,12 +20,12 @@ export default function StatsScreen() {
 
         {/* Main stats */}
         <View style={styles.grid}>
-          <StatCard icon="📖" label="Chapters Read" value={stats?.totalChaptersRead ?? 0} color="#7c3aed" />
-          <StatCard icon="📚" label="Novels Started" value={stats?.totalNovelsStarted ?? 0} color="#3b82f6" />
-          <StatCard icon="✅" label="Completed" value={stats?.totalNovelsCompleted ?? 0} color="#10b981" />
-          <StatCard icon="📅" label="Reading Days" value={stats?.totalReadingDays ?? 0} color="#f59e0b" />
-          <StatCard icon="💬" label="Words Read" value={formatNumber(stats?.estimatedWordsRead ?? 0)} color="#ec4899" large />
-          <StatCard icon="⏱️" label="Est. Hours" value={estimatedHours} color="#8b5cf6" />
+          <StatCard icon="🕮" label="Chapters Read" value={stats?.totalChaptersRead ?? 0} color="#7c3aed" />
+          <StatCard icon="🗒" label="Novels Started" value={stats?.totalNovelsStarted ?? 0} color="#3b82f6" />
+          <StatCard icon="✔" label="Completed" value={stats?.totalNovelsCompleted ?? 0} color="#10b981" />
+          <StatCard icon="🗓" label="Reading Days" value={stats?.totalReadingDays ?? 0} color="#f59e0b" />
+          <StatCard icon="🗨" label="Words Read" value={formatNumber(stats?.estimatedWordsRead ?? 0)} color="#ec4899" large />
+          <StatCard icon="◴" label="Est. Hours" value={estimatedHours} color="#8b5cf6" />
         </View>
 
         {/* Library breakdown */}

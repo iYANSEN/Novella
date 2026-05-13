@@ -41,7 +41,7 @@ export default function DownloadsScreen() {
 
       {queue.length === 0 ? (
         <View style={styles.empty}>
-          <Text style={styles.emptyIcon}>⬇️</Text>
+          <Text style={styles.emptyIcon}>⬇︎</Text>
           <Text style={styles.emptyTitle}>No downloads</Text>
           <Text style={styles.emptyText}>Download chapters from the novel page to read offline</Text>
         </View>

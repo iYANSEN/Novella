@@ -223,7 +223,7 @@ export default function ReaderScreen() {
         </View>
       ) : error ? (
         <View style={styles.errorContainer}>
-          <Text style={styles.errorText}>⚠️ {error}</Text>
+          <Text style={styles.errorText}>⚠ {error}</Text>
           <TouchableOpacity style={styles.retryBtn} onPress={loadChapter}>
             <Text style={styles.retryText}>Retry</Text>
           </TouchableOpacity>
