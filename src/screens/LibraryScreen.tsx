@@ -150,9 +150,22 @@ const styles = StyleSheet.create({
     borderWidth: 1, borderColor: COLORS.dark.border,
   },
   tabsContainer: { paddingHorizontal: 16, paddingBottom: 12, gap: 8 },
-  tab: { paddingHorizontal: 14, paddingVertical: 7, borderRadius: 20, backgroundColor: COLORS.dark.surface },
+  // FIXED TAB STYLES – horizontal pills, no stretching
+  tab: {
+    paddingHorizontal: 14,
+    paddingVertical: 7,
+    borderRadius: 40,               // changed from 20
+    backgroundColor: COLORS.dark.surface,
+    height: 36,                     // fixed height
+    alignSelf: 'flex-start',        // prevents stretching
+    justifyContent: 'center',       // centers content vertically
+  },
   activeTab: { backgroundColor: '#7c3aed' },
-  tabText: { color: COLORS.dark.textMid, fontSize: 13, fontWeight: '600' },
+  tabText: {
+    color: COLORS.dark.textMid,
+    fontSize: 13,
+    fontWeight: '500',              // changed from '600'
+  },
   activeTabText: { color: '#fff' },
   listContent: { padding: 16 },
   empty: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 32, gap: 10 },
