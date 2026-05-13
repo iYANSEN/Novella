@@ -24,4 +24,4 @@ export function initSources(): void {
 }
 
 export { sourceRegistry };
-export * from './BaseSource';
+export * from './sources/BaseSource';
