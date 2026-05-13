@@ -40,7 +40,6 @@
     },
     "plugins": [
       "expo-router",
-      
       "expo-secure-store",
       [
         "expo-notifications",
@@ -53,6 +52,14 @@
     "scheme": "novella",
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "4dde1adb-bd6d-4b82-b011-1eefeddcf393"
+      },
+      "router": {
+        "origin": false
+      }
     }
   }
 }
