@@ -4,7 +4,7 @@ import { COLORS } from '@/constants';
 
 function TabIcon({ icon, label, focused }: { icon: string; label: string; focused: boolean }) {
   return (
-    <View style={[styles.tabItem, { height: 48 }]}>
+    <View style={styles.tabItem}>
       <Text style={[styles.tabIcon, focused && styles.tabIconActive]}>{icon}</Text>
       <Text style={[styles.tabLabel, focused && styles.tabLabelActive]}>{label}</Text>
       {focused && <View style={styles.tabDot} />}
@@ -20,9 +20,9 @@ export default function TabsLayout() {
         tabBarStyle: {
           backgroundColor: COLORS.dark.card,
           borderTopColor: COLORS.dark.border,
-          height: 60,
-          paddingBottom: 0,
-          paddingTop: 0,
+          height: 64,
+          paddingBottom: 8,
+          paddingTop: 4,
         },
         tabBarShowLabel: false,
       }}
