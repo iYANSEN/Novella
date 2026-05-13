@@ -33,24 +33,7 @@ A full-featured web novel reader for Android & iOS built with Expo / React Nativ
 - **WebView** — chapter rendering (supports full HTML, custom CSS)
 - **Cheerio** — HTML parsing for source plugins
 
-## Setup
 
-```bash
-# 1. Clone / extract the project
-cd novella
-
-# 2. Install dependencies
-npm install
-
-# 3. Start development server
-npx expo start
-
-# 4. Build for Android
-npx eas build --platform android --profile preview
-
-# 5. Build for iOS
-npx eas build --platform ios --profile preview
-```
 
 ## EAS Build (expo.dev)
 
