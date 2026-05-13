@@ -34,16 +34,6 @@ A full-featured web novel reader for Android & iOS built with Expo / React Nativ
 - **Cheerio** — HTML parsing for source plugins
 
 
-
-## EAS Build (expo.dev)
-
-1. Install EAS CLI: `npm install -g eas-cli`
-2. Login: `eas login`
-3. Configure: `eas build:configure`
-4. Build: `eas build --platform android`
-
-The app uses **no backend server** — all data is stored on-device via SQLite and the filesystem.
-
 ## Adding a New Source
 
 Create a file in `src/plugins/sources/YourSource.ts`:
