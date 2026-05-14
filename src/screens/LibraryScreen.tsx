@@ -148,9 +148,19 @@ const styles = StyleSheet.create({
     paddingVertical: 10, color: COLORS.dark.text, fontSize: 15,
     borderWidth: 1, borderColor: COLORS.dark.border,
   },
-  tabsContainer: { paddingHorizontal: 16, paddingBottom: 12, gap: 8 },
-  tab: { paddingHorizontal: 14, paddingVertical: 7, borderRadius: 20, backgroundColor: COLORS.dark.surface },
-  activeTab: { backgroundColor: '#7c3aed' },
+ tabsContainer: { paddingHorizontal: 16, paddingBottom: 12, gap: 8, alignItems: 'center' },
+
+  tab: {
+  paddingHorizontal: 16,
+  paddingVertical: 8,
+  borderRadius: 40,
+  backgroundColor: COLORS.dark.surface,
+  alignSelf: 'flex-start',
+  height: 36,
+  justifyContent: 'center',
+},
+activeTab: { backgroundColor: '#7c3aed' },
+
   tabText: { color: COLORS.dark.textMid, fontSize: 13, fontWeight: '600' },
   activeTabText: { color: '#fff' },
   listContent: { padding: 16 },
