@@ -1,6 +1,5 @@
 import { sourceRegistry } from './BaseSource';
 import { RoyalRoadSource } from './sources/RoyalRoad';
-import { NovelUpdatesSource } from './sources/NovelUpdates';
 
 import { NovelUpdatesSource } from './sources/NovelUpdates';
 import { AllNovelSource } from './sources/AllNovel';
