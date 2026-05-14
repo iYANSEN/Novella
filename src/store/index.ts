@@ -1,41 +1,49 @@
 import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
-import { MMKV } from 'react-native-mmkv';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import type { ReaderSettings, AppSettings, DownloadTask, SourceInfo } from '@/types';
 import { DEFAULT_READER_SETTINGS, DEFAULT_APP_SETTINGS } from '@/constants';
 
-const storage = new MMKV({ id: 'novella-store' });
-
 function persist<T>(key: string, value: T): void {
-  storage.set(key, JSON.stringify(value));
+  AsyncStorage.setItem(key, JSON.stringify(value)).catch(() => {});
 }
+
 function hydrate<T>(key: string, fallback: T): T {
-  const val = storage.getString(key);
-  return val ? JSON.parse(val) : fallback;
+  // Sync hydration is not possible with AsyncStorage; return fallback.
+  return fallback;
+}
+
+async function hydrateAsync<T>(key: string, fallback: T): Promise<T> {
+  try {
+    const val = await AsyncStorage.getItem(key);
+    return val ? JSON.parse(val) : fallback;
+  } catch {
+    return fallback;
+  }
 }
 
 // ─── Reader Store ─────────────────────────────────────────────────────────────
 
 interface ReaderState {
   settings: ReaderSettings;
+  _hydrated: boolean;
   updateSettings: (partial: Partial<ReaderSettings>) => void;
   resetSettings: () => void;
-  // TTS state
   ttsActive: boolean;
   ttsParagraphIndex: number;
   setTtsActive: (active: boolean) => void;
   setTtsParagraphIndex: (index: number) => void;
-  // Auto-scroll state
   autoScrollActive: boolean;
   setAutoScrollActive: (active: boolean) => void;
-  // Sleep timer
   sleepTimerEnd: number | null;
   setSleepTimer: (minutes: number | null) => void;
+  hydrate: () => Promise<void>;
 }
 
 export const useReaderStore = create<ReaderState>()(
-  immer((set) => ({
-    settings: hydrate('reader_settings', DEFAULT_READER_SETTINGS),
+  immer((set, get) => ({
+    settings: { ...DEFAULT_READER_SETTINGS },
+    _hydrated: false,
     updateSettings: (partial) => set((s) => {
       Object.assign(s.settings, partial);
       persist('reader_settings', s.settings);
@@ -54,6 +62,10 @@ export const useReaderStore = create<ReaderState>()(
     setSleepTimer: (minutes) => set((s) => {
       s.sleepTimerEnd = minutes ? Date.now() + minutes * 60 * 1000 : null;
     }),
+    hydrate: async () => {
+      const settings = await hydrateAsync('reader_settings', DEFAULT_READER_SETTINGS);
+      set((s) => { s.settings = settings; s._hydrated = true; });
+    },
   }))
 );
 
@@ -62,15 +74,20 @@ export const useReaderStore = create<ReaderState>()(
 interface AppSettingsState {
   settings: AppSettings;
   updateSettings: (partial: Partial<AppSettings>) => void;
+  hydrate: () => Promise<void>;
 }
 
 export const useAppSettingsStore = create<AppSettingsState>()(
   immer((set) => ({
-    settings: hydrate('app_settings', DEFAULT_APP_SETTINGS),
+    settings: { ...DEFAULT_APP_SETTINGS },
     updateSettings: (partial) => set((s) => {
       Object.assign(s.settings, partial);
       persist('app_settings', s.settings);
     }),
+    hydrate: async () => {
+      const settings = await hydrateAsync('app_settings', DEFAULT_APP_SETTINGS);
+      set((s) => { s.settings = settings; });
+    },
   }))
 );
 
@@ -78,7 +95,7 @@ export const useAppSettingsStore = create<AppSettingsState>()(
 
 interface SourcesState {
   installed: SourceInfo[];
-  enabled: string[];       // source IDs
+  enabled: string[];
   addSource: (info: SourceInfo) => void;
   removeSource: (id: string) => void;
   toggleSource: (id: string) => void;
@@ -120,7 +137,7 @@ export const useSourcesStore = create<SourcesState>()(
 
 interface DownloadsState {
   queue: DownloadTask[];
-  active: string[];        // task IDs currently downloading
+  active: string[];
   addToQueue: (task: DownloadTask) => void;
   updateTask: (id: string, update: Partial<DownloadTask>) => void;
   removeTask: (id: string) => void;
