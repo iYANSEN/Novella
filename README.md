@@ -1,5 +1,3 @@
-# Novella — Open Source Novel Reader
-
 A full-featured web novel reader for Android & iOS built with Expo / React Native.
 
 ## Features (Phase 1)
