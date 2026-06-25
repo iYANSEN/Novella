@@ -33,10 +33,20 @@
       }
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#0d0d14"
-      },
+  "adaptiveIcon": {
+    "foregroundImage": "./assets/adaptive-icon.png",
+    "backgroundColor": "#0d0d14"
+  },
+  "package": "com.novella.reader",
+  "newArchEnabled": false,
+  "permissions": [
+    "android.permission.INTERNET",
+    "android.permission.READ_EXTERNAL_STORAGE",
+    "android.permission.WRITE_EXTERNAL_STORAGE",
+    "android.permission.FOREGROUND_SERVICE",
+    "android.permission.RECEIVE_BOOT_COMPLETED"
+  ]
+},
       "package": "com.novella.reader",
       "permissions": [
         "android.permission.INTERNET",
@@ -50,17 +60,18 @@
       "bundler": "metro",
       "favicon": "./assets/icon.png"
     },
-    "plugins": [
-      "expo-router",
-      "expo-secure-store",
-      [
-        "expo-notifications",
-        {
-          "icon": "./assets/notification-icon.png",
-          "color": "#7c3aed"
-        }
-      ]
-    ],
+"plugins": [
+  "expo-router",
+  "expo-dev-client",
+  "expo-secure-store",
+  [
+    "expo-notifications",
+    {
+      "icon": "./assets/icon.png",
+      "color": "#7c3aed"
+    }
+  ]
+],
     "scheme": "novella",
     "experiments": {
       "typedRoutes": true
