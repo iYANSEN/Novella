@@ -1,4 +1,10 @@
 #!/usr/bin/env node
+
+
+"prebuild": "expo prebuild --clean",
+"android:local": "expo run:android"
+
+
 // Run this once to generate placeholder assets for Expo
 // npm install canvas (optional) or just use the expo default assets
 
