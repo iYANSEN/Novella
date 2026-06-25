@@ -1,17 +1,16 @@
 {
-  
-[
-  "expo-notifications",
-  {
-    "icon": "./assets/icon.png",
-    "color": "#7c3aed"
-  }
-]
+
+  "expo-notifications":
+{
+  "icon": "./assets/icon.png",
+  "color": "#7c3aed"
+},
 
 
 
   
   "expo": {
+
     "name": "Novella",
     "slug": "novella",
     "version": "1.0.0",
@@ -85,4 +84,4 @@
       }
     }
   }
-}
+
