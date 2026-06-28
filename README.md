@@ -32,7 +32,7 @@ A full-featured web novel reader for Android & iOS built with Expo / React Nativ
 - **Cheerio** — HTML parsing for source plugins
 
 
-## Adding a New Source
+## Adding a New Source(its more complicated than that, jst give it to ai and gicve him a working plugin that i made, they gonna know the rest)
 
 Create a file in `src/plugins/sources/YourSource.ts`:
 
